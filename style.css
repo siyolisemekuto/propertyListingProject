@@ -54,4 +54,10 @@
     }
     
   }
+/* landing */
+#landing{
+    background-image: url("./assets/tableimage.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
   
