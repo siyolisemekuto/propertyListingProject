@@ -152,7 +152,7 @@ function showProperty(properties) {
       <h4>${property.title}</h4>
       <h5>${property.price}</h5>
       <p>${property.location}</p>
-      <p>${property.specifications.bedroooms}</p>
+      <p font-size=10px>${property.specifications.bedroooms}</p>
       <p>${property.specifications.bathrooms}</p>
       <p>${property.specifications.garage}</p>
       <p>${property.specifications.size}</p>
