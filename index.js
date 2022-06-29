@@ -93,7 +93,7 @@ const properties = JSON.parse(localStorage.getItem("properties"))
     {
         id:8,
         image:'https://i.postimg.cc/zD6zm492/image8.jpg',
-        title: "Apartment",
+        title: "Maultifamily",
         location: "Cape Town",
         price: "$830 000",
         specifications:{
@@ -106,7 +106,7 @@ const properties = JSON.parse(localStorage.getItem("properties"))
     {
         id:9,
         image:'https://i.postimg.cc/FHq81QVw/image9.jpg',
-        title: "Apartment",
+        title: "Condo",
         location: "Cape Town",
         price: "$790 000",
         specifications:{
@@ -132,7 +132,7 @@ const properties = JSON.parse(localStorage.getItem("properties"))
     {
         id:11,
         image:'https://i.postimg.cc/RZrrSHQw/image11.jpg',
-        title: "Apartment",
+        title: "Condo",
         location: "Cape Town",
         price: "$670 000",
         specifications:{
@@ -152,11 +152,24 @@ function showProperty(properties) {
       <h4>${property.title}</h4>
       <h5>${property.price}</h5>
       <p>${property.location}</p>
-      <p font-size=10px>${property.specifications.bedroooms}</p>
-      <p>${property.specifications.bathrooms}</p>
-      <p>${property.specifications.garage}</p>
-      <p>${property.specifications.size}</p>
+      <p class=specification>${property.specifications.bedroooms}</p>
+      <p class=specification>${property.specifications.bathrooms}</p>
+      <p class=specification>${property.specifications.garage}</p>
+      <p class=specification>${property.specifications.size}</p>
       </div>`
     })
 }
 showProperty(properties);
+
+//search bar functionality
+const searchBar = document.getElementById('searchBar')
+
+searchBar.addEventListener('keyup', (e) => {
+    const searchString = e.target.value;
+    const filteredProperties = properties.filter(property =>{
+       return  property.title.includes(searchString) || property.location.includes(searchString);
+    })
+    console.log(filteredProperties)
+    showProperty(filteredProperties)    
+    
+})

@@ -20,13 +20,38 @@
           <li><a class=nav-link href="#agents">Agents</a></li>
         </ul>
         <!-- search box -->
-        <input class="search" type="text" id="query" />
-        <input class="search" type="button" id="search" value="Search" />
+        <input class="search" type="text" id="searchBar" e.keyup />
+        <input class="search" type="button" id="search" value="Search" data-search/>
     </nav>
     <button  id=toggler class="" onclick="toggleNav()">NAV</button>
 
     <!-- landing -->
    <div class="container" id="landing" ></div>
+
+   <!-- sort -->
+   <div class="container" id="sort-options">
+    <select name="category" id="Property type">
+        <option value="Apartment">Apartment</option>
+        <option value="Condo">Condo</option>
+        <option value="Multi-family">Multi-family</option>
+        <option value="Villa">Villa</option>
+    </select>
+    <select name="category" id="Price">
+        <option value="Ascending">highest to lowest </option>
+        <option value="Descendng">lowest to highest</option>
+    </select>
+    <select name="category" id="Location">
+        <option value="Apartment">Camps Bay</option>
+        <option value="Condo">Co-Kaap</option>
+        <option value="Multi-family">Sea Point</option>
+    </select>
+    <select name="category" id="category">
+        <option value="Apartment">Apartment</option>
+        <option value="Condo">Condo</option>
+        <option value="Multi-family">Multi-family</option>
+        <option value="Villa">Villa</option>
+    </select>
+   </div>
 
    <!-- body -->
    <div class="container" id="propertyList"></div>
