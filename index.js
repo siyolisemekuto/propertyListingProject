@@ -1,140 +1,130 @@
-const properties = JSON.parse(localStorage.getItem("properties"))
-?JSON.parse(localStorage.getItem("properties")):[
+const propertyList = JSON.parse(localStorage.getItem("propertyList"))
+?JSON.parse(localStorage.getItem("propertyList")):[
     {
         id:1,
         image:'https://i.postimg.cc/L5kdc0dh/image1.jpg',
         title: "Apartment",
         location: "Cape Town",
-        price: "$876 000",
+        price: 876000,
         specifications:{
             bedroooms: "3 bedroom(s)",
             bathrooms: "2 bathroom(s)",
             garage: "2 garage(s)",
             size:"2000 Sq ft"
         },
-    },
-    {
+    },{
         id:2,
         image:'https://i.postimg.cc/gJZrZdh5/image2.jpg',
         title: "Apartment",
         location: "Cape Town",
-        price: "$770 000",
+        price: 770000,
         specifications:{
             bedroooms: "2 bedroom(s)",
             bathrooms: "2 bathroom(s)",
             garage: "1 garage(s)",
             size:"1800 Sq ft"
         },
-    },
-    {
+    },{
         id:3,
         image:'https://i.postimg.cc/vZKQLkGd/image3.jpg',
         title: "Apartment",
         location: "Cape Town",
-        price: "$460 000",
+        price: 460000,
         specifications:{
             bedroooms: "1 bedroom(s)",
             bathrooms: "1 bathroom(s)",
             size:"1540 Sq ft"
         },
-    },
-    {
+    },{
         id:4,
         image:'https://i.postimg.cc/2j1gnyV3/image4.jpg',
         title: "Apartment",
         location: "Cape Town",
-        price: "$600 000",
+        price: 600000,
         specifications:{
             bedroooms: "2 bedroom(s)",
             bathrooms: "2 bathroom(s)",
             garage: "1 garage(s)",
             size:"1700 Sq ft"
         },
-    },
-    {
+    },{
         id:5,
         image:'https://i.postimg.cc/RZSRQpXG/image5.jpg',
         title: "Apartment",
         location: "Cape Town",
-        price: "$680 000",
+        price: 680000,
         specifications:{
             bedroooms: "2 bedroom(s)",
             bathrooms: "1 bathroom(s)",
             garage: "1 garage(s)",
             size:"1700 Sq ft"
         },
-    },
-    {
+    },{
         id:6,
         image:'https://i.postimg.cc/bvKkMmH7/image6.jpg',
         title: "Apartment",
         location: "Cape Town",
-        price: "$700 000",
+        price: 700000,
         specifications:{
             bedroooms: "2 bedroom(s)",
             bathrooms: "2 bathroom(s)",
             garage: "2 garage(s)",
             size:"1800 Sq ft"
         },
-    },
-    {
+    },{
         id:7,
         image:'https://i.postimg.cc/DzP0n5qJ/image7.jpg',
         title: "Apartment",
         location: "Cape Town",
-        price: "$580 000",
+        price: 580000,
         specifications:{
             bedroooms: "2 bedroom(s)",
             bathrooms: "1 bathroom(s)",
             garage: "1 garage(s)",
             size:"1500 Sq ft"
         },
-    }, 
-    {
+    },{
         id:8,
         image:'https://i.postimg.cc/zD6zm492/image8.jpg',
         title: "Maultifamily",
         location: "Cape Town",
-        price: "$830 000",
+        price: 830000,
         specifications:{
             bedroooms: "3 bedroom(s)",
             bathrooms: "2 bathroom(s)",
             garage: "2 garage(s)",
             size:"2200 Sq ft"
         },
-    },
-    {
+    },{
         id:9,
         image:'https://i.postimg.cc/FHq81QVw/image9.jpg',
         title: "Condo",
         location: "Cape Town",
-        price: "$790 000",
+        price: 790000,
         specifications:{
             bedroooms: "3 bedroom(s)",
             bathrooms: "2 bathroom(s)",
             garage: "1 garage(s)" ,
             size:"2500 Sq ft"
         },
-    },
-    {
+    },{
         id:10,
         image:'https://i.postimg.cc/4ydQzYJP/image10.jpg',
         title: "Apartment",
         location: "Cape Town",
-        price: "$785 000",
+        price: 785000,
         specifications:{
             bedroooms: "2 bedroom(s)",
             bathrooms: "1 bathroom(s)",
             garage: "1 garage(s)",
             size:"1950 Sq ft"
         },
-    },
-    {
+    },{
         id:11,
         image:'https://i.postimg.cc/RZrrSHQw/image11.jpg',
         title: "Condo",
         location: "Cape Town",
-        price: "$670 000",
+        price: 670000,
         specifications:{
             bedroooms: "1 bedroom(s)",
             bathrooms: "1  bathroom(s)",
@@ -144,8 +134,8 @@ const properties = JSON.parse(localStorage.getItem("properties"))
     }
 ]
 
-function showProperty(properties) {
-    properties.forEach((property) => {
+function showProperty(propertyList) {
+    propertyList.forEach((property) => {
         document.querySelector("#propertyList").innerHTML += `
       <div>
       <img src=${property.image} />
@@ -159,17 +149,31 @@ function showProperty(properties) {
       </div>`
     })
 }
-showProperty(properties);
+showProperty(propertyList);
 
 //search bar functionality
 const searchBar = document.getElementById('searchBar')
 
+
 searchBar.addEventListener('keyup', (e) => {
-    const searchString = e.target.value;
-    const filteredProperties = properties.filter(property =>{
-       return  property.title.includes(searchString) || property.location.includes(searchString);
-    })
-    console.log(filteredProperties)
-    showProperty(filteredProperties)    
+    const searchString = e.target.value.toLowerCase();
+    console.log(searchString);
+    const filteredProperties = propertyList.filter((property) =>{
+       return (
+         property.title.LowerCase().includes(searchString) || 
+         property.location.toLowerCase().includes(searchString)
+       );
+   });
+
+    showProperty(propertyList)    
     
 })
+
+//sort prices
+// const sortPrice = document.getElementById("Price")
+// if( value=== value.getElementById("Ascending")){
+//     let propertyList = propertyList.sort((a, b) => a.price - b.price);
+// } else (value === value.getElementById("Descending"));{
+//     let propertyList = propertyList.sort((b, a) => a.price - b.price)
+// }
+propertyList.onclick = function(){}

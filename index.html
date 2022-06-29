@@ -37,19 +37,19 @@
         <option value="Villa">Villa</option>
     </select>
     <select name="category" id="Price">
-        <option value="Ascending">highest to lowest </option>
-        <option value="Descendng">lowest to highest</option>
+        <option value="Ascending" id=ascending onclick="defaultOrder()">lowest to highest </option>
+        <option value="Descendng" id=descending onclick="changeOrder()">highest to lowest</option>
     </select>
     <select name="category" id="Location">
-        <option value="Apartment">Camps Bay</option>
-        <option value="Condo">Co-Kaap</option>
-        <option value="Multi-family">Sea Point</option>
+        <option value="Camps Bay">Camps Bay</option>
+        <option value="Bo-Kaap">Bo-Kaap</option>
+        <option value="Sea Point">Sea Point</option>
     </select>
-    <select name="category" id="category">
-        <option value="Apartment">Apartment</option>
-        <option value="Condo">Condo</option>
-        <option value="Multi-family">Multi-family</option>
-        <option value="Villa">Villa</option>
+    <select name="category" id="Size">
+        <option value="greater-2000">Greater than 2000Sq ft</option>
+        <option value="greater-1500">Greater than 1500Sq ft</option>
+        <option value="lesser-15000">Less than 1500Sq ft</option>
+        
     </select>
    </div>
 
