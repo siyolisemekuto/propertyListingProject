@@ -38,15 +38,15 @@
         <option value="Multi-family">Multi-family</option>
         <option value="Villa">Villa</option>
     </select>
-    <select name="category" id="Price">
-        <option value="Ascending" id=ascending onclick="defaultOrder()">lowest to highest </option>
-        <option value="Descendng" id=descending onclick="changeOrder()">highest to lowest</option>
-    </select>
-    <select name="category" id="Location">
-        <option value="Camps Bay">Camps Bay</option>
-        <option value="Bo-Kaap">Bo-Kaap</option>
-        <option value="Sea Point">Sea Point</option>
-    </select>
+    <div name="category" id="Price">
+        <button value="Ascending" id=ascending onclick="defaultOrder()">lowest to highest</button>
+        <button value="Descendng" id=descending onclick="changeOrder()">highest to lowest</button>
+    </div>
+    <div name="category" id="Location">
+        <button value="Camps Bay" onclick="campsbay()">Camps Bay</button>
+        <button value="Bo-Kaap" onclick="bokaap()">Bo-Kaap</button>
+        <button value="Sea Point" onclick="seapoint()">Sea Point</button>
+    </div>
     <select name="category" id="Size">
         <option value="greater-2000">Greater than 2000Sq ft</option>
         <option value="greater-1500">Greater than 1500Sq ft</option>

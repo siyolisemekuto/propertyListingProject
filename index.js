@@ -135,9 +135,13 @@ let propertyList = JSON.parse(localStorage.getItem("propertyList"))
     }
 ]
 
-function showProperty(propertyList) {
-    propertyList.forEach((property) => {
-        document.querySelector("#properties").innerHTML += `
+function showProperty() {
+    let listing = document.querySelector("#properties");
+    listing.innerHTML = '';
+//     listing.innerHTML += `
+//    `;
+  propertyList.forEach((property) => {
+    document.querySelector("#properties").innerHTML += `
     <li class="card" style="width: 18rem;">
   <img src="${property.image}" class="card-img-top" alt="image">
   <div class="card-body">
@@ -174,8 +178,35 @@ console.log(propertyList.filter((property) => {
 
 
 //sort prices
-propertyList.forEach((property) => {
-propertyList.sort((a, b) => {return a.property.price-b.property.price});
-console.log(propertyList)
-})
+// propertyList.forEach((property) => {
+// propertyList.sort((a, b) => {return a.property.price-b.property.price});
+// console.log(propertyList)
+// })
 
+
+//sorting
+function defaultOrder(){
+    propertyList.sort((a, b)=>{
+        return a.price-b.price
+    });
+    showProperty();
+}
+function changeOrder(){
+    propertyList.sort((a, b)=>{
+        return b.price-a.price
+    });
+    showProperty();
+}
+
+function campsbay(location) {
+    propertyList = propertyList.filter(property => property.location === "Camps Bay") 
+    showProperty()
+}
+function bokaap(location) {
+    propertyList = propertyList.filter(property => property.location === "Bo-Kaap") 
+    showProperty()
+}
+function seapoint(location) {
+    propertyList = propertyList.filter(property => property.location === "Sea Point") 
+    showProperty()
+}

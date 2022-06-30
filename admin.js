@@ -192,6 +192,18 @@ function sorting(){
     });
     showProperty();
 }
+function ascending(){
+    propertyList.sort((a, b)=>{
+        return a.price-b.price
+    });
+    showProperty();
+}
+function descending(){
+    propertyList.sort((a, b)=>{
+        return b.price-a.price
+    });
+    showProperty();
+}
 
 // adding
 function addRecord(e) {
