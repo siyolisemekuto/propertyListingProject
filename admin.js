@@ -205,24 +205,27 @@ function descending(){
     showProperty();
 }
 
-// adding
-function addRecord(e) {
-  const property= {
+//adding
+function addListing(){
+    const newListing = {
     id:propertyList.lenght+1,
-    image:'https://i.postimg.cc/L5kdc0dh/image1.jpg',
-    title: "Apartment 34",
-    location: "sila",
+    image: document.querySelector('#title').value,,
+    title:  document.querySelector('#title').value,,
+    location:  document.querySelector('#title').value,,
     price: 8,
     specifications:{
         bedroooms: "3 bedroom(s)",
         bathrooms: "2 bathroom(s)",
         garage: "2 garage(s)",
         size:"20 Sq ft"
-
-  }};
-    propertyList.push(property);
-    // Save data to our localstorage
-    localStorage.setItem("propertyList", JSON.stringify(propertyList));
+    }
 }
+    console.log(newProduct);
+    items.push(newProduct);
+    showProperty();
+    localStorage.setItem("propertyList", JSON.stringify(propertyList));
+}      
+
+    
 // document.querySelector('#add').addEventListener('onclick', addRecord);
 // console.log(JSON.parse(localStorage.getItem('propertyList')));

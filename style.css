@@ -95,6 +95,11 @@
 .card:hover{
     box-shadow: 15px;
 }
+footer{
+  display: flex;
+  justify-content: center;
+  background-color: var(--color4);
+}
 @media screen and (max-width:768px){
     .nav-links{
       flex-direction:column;
