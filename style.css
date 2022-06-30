@@ -65,11 +65,20 @@
     margin-bottom: 0;
     padding-bottom: 0;
 }
+#sort-options{
+    z-index: 1;
+    margin-top:-100px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 100px;
+}
 #agents{
     display: flex;
 }
 .card-img-top{
-    height: 200px;
+    height: 210px;
+    object-fit: cover;
+    object-position: center;
 }
 .card-title{
     font-weight: bold;

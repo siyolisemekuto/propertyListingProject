@@ -4,7 +4,7 @@ const propertyList = JSON.parse(localStorage.getItem("propertyList"))
         id:1,
         image:'https://i.postimg.cc/L5kdc0dh/image1.jpg',
         title: "Apartment",
-        location: "Cape Town",
+        location: "Bo-Kaap",
         price: 876000,
         specifications:{
             bedroooms: "3 bedroom(s)",
@@ -16,7 +16,7 @@ const propertyList = JSON.parse(localStorage.getItem("propertyList"))
         id:2,
         image:'https://i.postimg.cc/gJZrZdh5/image2.jpg',
         title: "Apartment",
-        location: "Cape Town",
+        location: "Bo-Kaap",
         price: 770000,
         specifications:{
             bedroooms: "2 bedroom(s)",
@@ -28,7 +28,7 @@ const propertyList = JSON.parse(localStorage.getItem("propertyList"))
         id:3,
         image:'https://i.postimg.cc/vZKQLkGd/image3.jpg',
         title: "Apartment",
-        location: "Cape Town",
+        location: "Camps Bay",
         price: 460000,
         specifications:{
             bedroooms: "1 bedroom(s)",
@@ -38,8 +38,8 @@ const propertyList = JSON.parse(localStorage.getItem("propertyList"))
     },{
         id:4,
         image:'https://i.postimg.cc/2j1gnyV3/image4.jpg',
-        title: "Apartment",
-        location: "Cape Town",
+        title: "Multi family",
+        location: "Camps Bay",
         price: 600000,
         specifications:{
             bedroooms: "2 bedroom(s)",
@@ -50,8 +50,8 @@ const propertyList = JSON.parse(localStorage.getItem("propertyList"))
     },{
         id:5,
         image:'https://i.postimg.cc/RZSRQpXG/image5.jpg',
-        title: "Apartment",
-        location: "Cape Town",
+        title: "Condo",
+        location: "Sea Point",
         price: 680000,
         specifications:{
             bedroooms: "2 bedroom(s)",
@@ -62,8 +62,8 @@ const propertyList = JSON.parse(localStorage.getItem("propertyList"))
     },{
         id:6,
         image:'https://i.postimg.cc/bvKkMmH7/image6.jpg',
-        title: "Apartment",
-        location: "Cape Town",
+        title: "Villa",
+        location: "Sea Point",
         price: 700000,
         specifications:{
             bedroooms: "2 bedroom(s)",
@@ -75,7 +75,7 @@ const propertyList = JSON.parse(localStorage.getItem("propertyList"))
         id:7,
         image:'https://i.postimg.cc/DzP0n5qJ/image7.jpg',
         title: "Apartment",
-        location: "Cape Town",
+        location: "Camps Bay",
         price: 580000,
         specifications:{
             bedroooms: "2 bedroom(s)",
@@ -87,7 +87,7 @@ const propertyList = JSON.parse(localStorage.getItem("propertyList"))
         id:8,
         image:'https://i.postimg.cc/zD6zm492/image8.jpg',
         title: "Maultifamily",
-        location: "Cape Town",
+        location: "Bo-Kaap",
         price: 830000,
         specifications:{
             bedroooms: "3 bedroom(s)",
@@ -99,7 +99,7 @@ const propertyList = JSON.parse(localStorage.getItem("propertyList"))
         id:9,
         image:'https://i.postimg.cc/FHq81QVw/image9.jpg',
         title: "Condo",
-        location: "Cape Town",
+        location: "Sea Point",
         price: 790000,
         specifications:{
             bedroooms: "3 bedroom(s)",
@@ -111,7 +111,7 @@ const propertyList = JSON.parse(localStorage.getItem("propertyList"))
         id:10,
         image:'https://i.postimg.cc/4ydQzYJP/image10.jpg',
         title: "Apartment",
-        location: "Cape Town",
+        location: "Camps Bay",
         price: 785000,
         specifications:{
             bedroooms: "2 bedroom(s)",
@@ -123,7 +123,7 @@ const propertyList = JSON.parse(localStorage.getItem("propertyList"))
         id:11,
         image:'https://i.postimg.cc/RZrrSHQw/image11.jpg',
         title: "Condo",
-        location: "Cape Town",
+        location: "Camps Bay",
         price: 670000,
         specifications:{
             bedroooms: "1 bedroom(s)",
@@ -136,44 +136,64 @@ const propertyList = JSON.parse(localStorage.getItem("propertyList"))
 
 function showProperty(propertyList) {
     propertyList.forEach((property) => {
-        document.querySelector("#propertyList").innerHTML += `
-      <div>
-      <img src=${property.image} />
-      <h4>${property.title}</h4>
-      <h5>${property.price}</h5>
-      <p>${property.location}</p>
-      <p class=specification>${property.specifications.bedroooms}</p>
-      <p class=specification>${property.specifications.bathrooms}</p>
-      <p class=specification>${property.specifications.garage}</p>
-      <p class=specification>${property.specifications.size}</p>
-      </div>`
-    })
+        document.querySelector("#properties").innerHTML += `
+        
+        <li class="card" style="width: 18rem;">
+  <img src="${property.image}" class="card-img-top" alt="image">
+  <div class="card-body">
+    <h5 class="card-title">${property.title}</h5>
+    <h5 class="card-title"> <i>${property.price}</i></h5>
+    <p class="card-text">${property.location}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">${property.specifications. bedroooms}</li>
+    <li class="list-group-item">${property.specifications.bathrooms}</li>
+    <li class="list-group-item">${property.specifications.garage}</li>
+    <li class="list-group-item">${property.specifications.size}</li>
+  </ul>
+</li>`
+    });
 }
+
 showProperty(propertyList);
 
-//search bar functionality
+
+
+// searchbar
+const properties = document.getElementById('properties')
 const searchBar = document.getElementById('searchBar')
+// let Property = []
 
+// searchBar.addEventListener('keyup', (e) => {
+//     const searchString = e.target.value.toLowerCase();
+//     console.log(searchString);
+//     const filteredProperties = Property.filter((property) =>{
+//        return (
+//          property.title.toLowerCase().includes(searchString) || 
+//          property.location.toLowerCase().includes(searchString)
+//        );
+//    });
 
-searchBar.addEventListener('keyup', (e) => {
-    const searchString = e.target.value.toLowerCase();
-    console.log(searchString);
-    const filteredProperties = propertyList.filter((property) =>{
-       return (
-         property.title.LowerCase().includes(searchString) || 
-         property.location.toLowerCase().includes(searchString)
-       );
-   });
-
-    showProperty(propertyList)    
+//     showProperty(filteredProperties)    
     
-})
+// })
+searchBar.addEventListener('keyup', (e) => {
+const searchString = e.target.value.toLowerCase();
+console.log(propertyList.filter((property) => {
+    return property == searchString;
+} ));
+});
+
 
 //sort prices
+propertyList.forEach((property) => {
+propertyList.sort((a, b) => {return a.property.price-b.property.price});
+console.log(propertyList)
+})
 // const sortPrice = document.getElementById("Price")
 // if( value=== value.getElementById("Ascending")){
 //     let propertyList = propertyList.sort((a, b) => a.price - b.price);
 // } else (value === value.getElementById("Descending"));{
 //     let propertyList = propertyList.sort((b, a) => a.price - b.price)
 // }
-propertyList.onclick = function(){}
+// propertyList.onclick = function(){}
