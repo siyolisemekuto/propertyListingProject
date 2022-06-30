@@ -186,8 +186,7 @@ function deleteListing(id) {
 
 
 //sorting
-function sortingLocation(){
-
+function sorting(){
     propertyList.sort((a,b)=>{
         return a.location < b.location? -1:1;
     });
