@@ -1,5 +1,5 @@
-const propertyList = JSON.parse(localStorage.getItem("propertyList"))
-?JSON.parse(localStorage.getItem("propertyList")):[
+let propertyList = JSON.parse(localStorage.getItem("propertyList"))
+? JSON.parse(localStorage.getItem("propertyList")):[
     {
         id:1,
         image:'https://i.postimg.cc/L5kdc0dh/image1.jpg',
@@ -95,7 +95,8 @@ const propertyList = JSON.parse(localStorage.getItem("propertyList"))
             garage: "2 garage(s)",
             size:"2200 Sq ft"
         },
-    },{
+    },
+    {
         id:9,
         image:'https://i.postimg.cc/FHq81QVw/image9.jpg',
         title: "Condo",
@@ -137,8 +138,7 @@ const propertyList = JSON.parse(localStorage.getItem("propertyList"))
 function showProperty(propertyList) {
     propertyList.forEach((property) => {
         document.querySelector("#properties").innerHTML += `
-        
-        <li class="card" style="width: 18rem;">
+    <li class="card" style="width: 18rem;">
   <img src="${property.image}" class="card-img-top" alt="image">
   <div class="card-body">
     <h5 class="card-title">${property.title}</h5>
@@ -162,21 +162,8 @@ showProperty(propertyList);
 // searchbar
 const properties = document.getElementById('properties')
 const searchBar = document.getElementById('searchBar')
-// let Property = []
 
-// searchBar.addEventListener('keyup', (e) => {
-//     const searchString = e.target.value.toLowerCase();
-//     console.log(searchString);
-//     const filteredProperties = Property.filter((property) =>{
-//        return (
-//          property.title.toLowerCase().includes(searchString) || 
-//          property.location.toLowerCase().includes(searchString)
-//        );
-//    });
 
-//     showProperty(filteredProperties)    
-    
-// })
 searchBar.addEventListener('keyup', (e) => {
 const searchString = e.target.value.toLowerCase();
 console.log(propertyList.filter((property) => {
@@ -185,15 +172,10 @@ console.log(propertyList.filter((property) => {
 });
 
 
+
 //sort prices
 propertyList.forEach((property) => {
 propertyList.sort((a, b) => {return a.property.price-b.property.price});
 console.log(propertyList)
 })
-// const sortPrice = document.getElementById("Price")
-// if( value=== value.getElementById("Ascending")){
-//     let propertyList = propertyList.sort((a, b) => a.price - b.price);
-// } else (value === value.getElementById("Descending"));{
-//     let propertyList = propertyList.sort((b, a) => a.price - b.price)
-// }
-// propertyList.onclick = function(){}
+
